@@ -1,10 +1,8 @@
 import requests
-
-
 # import json
 
 def get_library_version():
-    return 0.1
+    return '0.1.0'
 
 
 def get_api_version():

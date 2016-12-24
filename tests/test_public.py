@@ -39,5 +39,12 @@ class PublicTestSuite(unittest.TestCase):
         stats = pub.get_buy_info()
         self.assertEquals(len(stats['algorithms']), 25)
 
+    def test_get_orders(self):
+        location = 0
+        algo = 1
+        result = pub.get_orders(location, algo)
+        self.assertGreater(len(result['orders']), 0)
+
+
 if __name__ == '__main__':
     unittest.main()

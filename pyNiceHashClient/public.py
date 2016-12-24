@@ -41,3 +41,9 @@ def get_buy_info():
     request_uri = "https://www.nicehash.com/api?method=buy.info"
     response = requests.get(request_uri).json()
     return response['result']
+
+
+def get_orders(location, algo):
+    request_uri = "https://www.nicehash.com/api?method=orders.get&location=%s&algo=%s" % (location, algo)
+    response = requests.get(request_uri).json()
+    return response['result']

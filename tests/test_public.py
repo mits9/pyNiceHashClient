@@ -26,6 +26,14 @@ class PublicTestSuite(unittest.TestCase):
         stats = pub.get_stats_global_24h(1)
         self.assertTrue(len(stats) == 25)
 
+    def test_get_stats_provider_with_addr(self):
+        btc_address = '1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW'
+        stats = pub.get_stats_provider(btc_address)
+        self.assertEquals(stats['addr'], btc_address)
+
+    def test_get_stats_provider_with_no_addr(self):
+        btc_address = ''
+        self.assertRaises(ValueError, pub.get_stats_provider, btc_address)
 
 if __name__ == '__main__':
     unittest.main()

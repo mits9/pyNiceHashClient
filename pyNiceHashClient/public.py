@@ -25,3 +25,13 @@ def get_stats_global_24h(location=None):
         request_uri = request_uri + "&location=" + str(location)
     response = requests.get(request_uri).json()
     return response['result']['stats']
+
+
+def get_stats_provider(btc_address):
+    request_uri = "https://www.nicehash.com/api?method=stats.provider"
+    if btc_address != "":
+        request_uri = request_uri + "&addr=" + str(btc_address)
+    else:
+        raise ValueError('Must provide valid bitcoin address')
+    response = requests.get(request_uri).json()
+    return response['result']

@@ -1,1 +1,1 @@
-requests.py
+requests>=2.12.4

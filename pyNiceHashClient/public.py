@@ -35,3 +35,9 @@ def get_stats_provider(btc_address):
         raise ValueError('Must provide valid bitcoin address')
     response = requests.get(request_uri).json()
     return response['result']
+
+
+def get_buy_info():
+    request_uri = "https://www.nicehash.com/api?method=buy.info"
+    response = requests.get(request_uri).json()
+    return response['result']

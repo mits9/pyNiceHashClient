@@ -12,19 +12,19 @@ class PublicTestSuite(unittest.TestCase):
 
     def test_get_stats_global_current_no_location(self):
         stats = pub.get_stats_global_current()
-        self.assertTrue(len(stats) == 25)
+        self.assertEquals(len(stats), 25)
 
     def test_get_stats_global_current_location_set(self):
         stats = pub.get_stats_global_current(0)
-        self.assertTrue(len(stats) == 25)
+        self.assertEquals(len(stats), 25)
 
     def test_get_stats_global_24h_no_location(self):
         stats = pub.get_stats_global_24h()
-        self.assertTrue(len(stats) == 25)
+        self.assertEquals(len(stats), 25)
 
     def test_get_stats_global_24h_location_set(self):
         stats = pub.get_stats_global_24h(1)
-        self.assertTrue(len(stats) == 25)
+        self.assertEquals(len(stats), 25)
 
     def test_get_stats_provider_with_addr(self):
         btc_address = '1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW'
@@ -34,6 +34,10 @@ class PublicTestSuite(unittest.TestCase):
     def test_get_stats_provider_with_no_addr(self):
         btc_address = ''
         self.assertRaises(ValueError, pub.get_stats_provider, btc_address)
+
+    def test_get_buy_info(self):
+        stats = pub.get_buy_info()
+        self.assertEquals(len(stats['algorithms']), 25)
 
 if __name__ == '__main__':
     unittest.main()
